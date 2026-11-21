@@ -1,0 +1,791 @@
+<!DOCTYPE html><html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Naufal Nadhif Arkaan — Portfolio</title>
+<!-- Google Fonts: Anton (Display), Plus Jakarta Sans (Headings/Body), Caveat (Handwritten) -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Caveat:wght@400;600;700&amp;family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS v3 CDN with Forms and Container Queries -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration Script -->
+<script data-purpose="tailwind-config">
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'bg-base': '#0A0A0B',
+            'bg-elevated': '#111113',
+            'bg-card': '#151518',
+            'bg-crimson-dark': '#4A0D10',
+            'accent': '#C81D25',
+            'accent-bright': '#E5252E',
+            'accent-glow': 'rgba(200, 29, 37, 0.28)',
+            'text-main': '#F4F4F5',
+            'text-muted': '#9A9AA2',
+            'border-hairline': 'rgba(255, 255, 255, 0.08)',
+          },
+          fontFamily: {
+            display: ['Anton', 'sans-serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            hand: ['Caveat', 'cursive'],
+          },
+          letterSpacing: {
+            tightest: '-0.06em',
+            superwide: '0.22em',
+          }
+        }
+      }
+    }
+  </script>
+<!-- Custom Core Styles -->
+<style data-purpose="custom-layout-and-glow">
+    body {
+      background-color: #0A0A0B;
+      color: #F4F4F5;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+      selection-background-color: #C81D25;
+      selection-color: #ffffff;
+    }
+    ::selection {
+      background: #C81D25;
+      color: #FFFFFF;
+    }
+    
+    /* Background giant wordmark clipping gradient */
+    .hero-wordmark-text {
+      background: linear-gradient(180deg, rgba(200, 29, 37, 0.95) 0%, rgba(135, 14, 20, 0.65) 55%, rgba(10, 10, 11, 0) 95%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      user-select: none;
+    }
+
+    /* Ambient Crimson Lighting */
+    .crimson-ambient {
+      background: radial-gradient(circle at 50% 30%, rgba(200, 29, 37, 0.24) 0%, rgba(10, 10, 11, 0) 70%);
+    }
+
+    /* Subtle Border Shimmer */
+    .hairline-border {
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .hairline-border-crimson {
+      border: 1px solid rgba(200, 29, 37, 0.4);
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 7px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0A0A0B;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #27272A;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #C81D25;
+    }
+  </style>
+</head>
+<body class="bg-bg-base text-text-main min-h-screen relative antialiased">
+<!-- BEGIN: ToastNotification -->
+<div class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none flex items-center gap-3 bg-bg-card border border-accent/40 px-5 py-3 rounded-full shadow-2xl shadow-accent/20 backdrop-blur-md" data-purpose="toast-alert" id="copyToast">
+<span class="w-2.5 h-2.5 rounded-full bg-accent animate-ping"></span>
+<span class="text-xs uppercase font-bold tracking-wider text-text-main" id="toastMessage">Copied to clipboard!</span>
+</div>
+<!-- END: ToastNotification -->
+<!-- BEGIN: TopUtilityBar -->
+<header class="w-full border-b border-border-hairline bg-bg-base/80 backdrop-blur-md sticky top-0 z-40">
+<div class="max-w-7xl mx-auto px-5 sm:px-8 py-3.5 flex items-center justify-between text-xs tracking-wider font-semibold">
+<!-- Role tags -->
+<div class="flex items-center space-x-2">
+<span class="text-accent uppercase tracking-widest font-extrabold text-[11px] sm:text-xs">INFORMATICS ENGINEERING STUDENT</span>
+<span class="text-zinc-600 hidden sm:inline">/</span>
+<span class="text-zinc-400 uppercase tracking-widest font-medium hidden sm:inline text-[11px] sm:text-xs">ASPIRING TECHNOLOGY ENTHUSIAST</span>
+</div>
+<!-- Availability status -->
+<div class="flex items-center space-x-2 text-zinc-300">
+<span class="uppercase tracking-widest text-[11px] sm:text-xs font-semibold">OPEN TO COLLAB &amp; INTERNSHIPS</span>
+<span aria-hidden="true" class="text-accent text-sm animate-pulse">✦</span>
+</div>
+</div>
+</header>
+<!-- END: TopUtilityBar -->
+<main>
+<!-- BEGIN: HeroSection -->
+<section class="relative pt-6 pb-20 md:pb-28 overflow-hidden" data-purpose="hero-section">
+<!-- Ambient crimson light behind character -->
+<div aria-hidden="true" class="absolute inset-0 pointer-events-none crimson-ambient opacity-80"></div>
+<!-- Giant Decorative Wordmark "PORTFOLIO" -->
+<div class="absolute top-2 left-0 right-0 w-full flex justify-center pointer-events-none select-none z-0 overflow-hidden">
+<h1 class="font-display hero-wordmark-text text-[21vw] leading-none tracking-tightest text-center whitespace-nowrap opacity-90 uppercase">
+          PORTFOLIO
+        </h1>
+</div>
+<!-- Hero Grid Content Container -->
+<div class="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 pt-10 sm:pt-16 md:pt-20">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-4 items-center">
+<!-- LEFT COLUMN: Intro, Name, Bio, Badge -->
+<div class="lg:col-span-5 flex flex-col justify-center space-y-5 order-2 lg:order-1 pt-4 lg:pt-0">
+<!-- Handwritten Accent -->
+<div class="relative">
+<span class="font-hand text-4xl sm:text-5xl text-accent-bright font-bold inline-block transform -rotate-3 hover:rotate-0 transition-transform duration-300">
+                Hello, I'm
+              </span>
+</div>
+<!-- Big Stacked Name -->
+<div class="space-y-1">
+<h2 class="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight text-white leading-[0.88] uppercase drop-shadow-xl">
+                NAUFAL<br>
+<span class="text-zinc-100 hover:text-accent transition-colors duration-300">NADHIF</span><br>
+                ARKAAN
+              </h2>
+</div>
+<!-- Subtitle -->
+<div class="pt-2">
+<p class="text-accent font-bold tracking-wider text-xs sm:text-sm uppercase flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-accent inline-block"></span>
+                ITPLN STUDENT · WEB &amp; GAME DEV ENTHUSIAST
+              </p>
+</div>
+<!-- Bio -->
+<p class="text-text-muted text-sm sm:text-base leading-relaxed max-w-lg font-normal">
+              I'm an Informatics Engineering student at <strong class="text-zinc-200 font-semibold">Institut Teknologi PLN</strong> with a strong interest in technology, computers, and programming. I enjoy exploring how technology works and building meaningful solutions in web and game development.
+            </p>
+<!-- Location & Origin Badge -->
+<div class="pt-3">
+<div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-bg-card hairline-border text-xs text-zinc-300 tracking-wide font-medium shadow-md">
+<!-- Red Location Icon -->
+<svg class="w-3.5 h-3.5 text-accent flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+<path clip-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" fill-rule="evenodd"></path>
+</svg>
+<span>INSTITUT TEKNOLOGI PLN · JAKARTA, ID</span>
+</div>
+</div>
+</div>
+<!-- CENTER COLUMN: Visual Representation & Floating Callout -->
+<div class="lg:col-span-4 flex justify-center items-center relative order-1 lg:order-2 py-4">
+<!-- Rim Glow Container -->
+<div class="relative w-72 sm:w-80 md:w-96 aspect-[3/4] max-h-[580px] rounded-3xl overflow-hidden border border-white/10 shadow-[0_0_50px_rgba(200,29,37,0.35)] bg-gradient-to-b from-bg-card via-zinc-900 to-black group">
+<!-- Subtle Red Accent Top Gradient -->
+<div class="absolute inset-0 bg-gradient-to-t from-bg-base via-transparent to-accent/15 z-10 pointer-events-none"></div>
+<!-- High-Contrast Stylized Hero Avatar / Canvas Visual -->
+<div class="w-full h-full relative flex items-center justify-center bg-gradient-to-b from-zinc-800/80 to-zinc-950"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKnRjDYx1EpjQMCWdFZ5aRHCwfCXjuOc-L8GEpd8M8RtZ1ea7PXnA8elZf9JW2JtksCxrie7-RPOatL16IjUkVJrr6awmGGJUexbUmYQntgMNHDVKKnMjhxpn_LmKbx_ujEMs80PMcVt3e_Zc6VC1iMm-NxBM3rOWbYf8v5fqSoxvBDK_8V5PLDfqmGjuLz3rybuDIgpR_SP0Gt5KTkM1HUVNL3sBsNioZM2MaJ_GT" alt="Naufal Nadhif Arkaan" class="w-full h-full object-cover object-top"></div>
+<!-- Floating Callout Badge Over Right Shoulder -->
+<div class="absolute bottom-6 right-4 sm:-right-2 z-20 max-w-[210px] bg-bg-card/95 hairline-border-crimson backdrop-blur-md px-3.5 py-2.5 rounded-2xl shadow-2xl transform hover:scale-105 transition-transform duration-300">
+<div class="flex items-start space-x-2">
+<span aria-hidden="true" class="text-white text-xs mt-0.5">✦</span>
+<p class="text-[11px] leading-snug text-zinc-300 font-medium">
+                    Exploring code, web &amp; game worlds.
+                  </p>
+</div>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN: Stat Rows -->
+<div class="lg:col-span-3 flex flex-row lg:flex-col justify-around lg:justify-center gap-6 lg:gap-10 order-3 pt-4 lg:pt-0 border-t lg:border-t-0 border-border-hairline">
+<!-- Stat Item 1 -->
+<div class="group cursor-default">
+<div class="font-display text-4xl sm:text-5xl md:text-6xl text-accent tracking-tight group-hover:text-accent-bright transition-colors">
+                ITPLN
+              </div>
+<div class="text-xs uppercase tracking-widest text-text-muted mt-1 font-semibold">
+                INFORMATICS ENGINEERING
+              </div>
+</div>
+<!-- Stat Item 2 -->
+<div class="group cursor-default">
+<div class="font-display text-4xl sm:text-5xl md:text-6xl text-accent tracking-tight group-hover:text-accent-bright transition-colors">
+                3+
+              </div>
+<div class="text-xs uppercase tracking-widest text-text-muted mt-1 font-semibold">
+                CORE TECH TRACKS
+              </div>
+</div>
+<!-- Stat Item 3 -->
+<div class="group cursor-default">
+<div class="font-display text-4xl sm:text-5xl md:text-6xl text-accent tracking-tight group-hover:text-accent-bright transition-colors">EX PMR</div>
+<div class="text-xs uppercase tracking-widest text-text-muted mt-1 font-semibold">
+                LEADERSHIP &amp; TEAMWORK
+              </div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: HeroSection -->
+<!-- BEGIN: SelectedProjects -->
+<section class="py-16 md:py-24 border-t border-border-hairline relative" data-purpose="projects-section" id="projects">
+<div class="max-w-7xl mx-auto px-5 sm:px-8">
+<!-- Section Header -->
+<div class="flex flex-col sm:flex-row sm:items-end justify-between mb-12 pb-4 border-b border-border-hairline gap-4">
+<div>
+<h2 class="font-display text-3xl sm:text-4xl text-white tracking-wider uppercase">
+              SELECTED PROJECTS
+            </h2>
+<p class="text-text-muted text-xs uppercase tracking-widest mt-1">
+              PRACTICAL EXPLORATIONS &amp; CREATIVE BUILDS
+            </p>
+</div>
+<div>
+<a class="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-bold text-zinc-400 hover:text-accent transition-colors" href="#contact">
+<span>EXPLORATIONS &amp; ROADMAP</span>
+<span class="text-base">⟶</span>
+</a>
+</div>
+</div>
+<!-- 3 Project Cards Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+<!-- Project 01 -->
+<article class="group bg-bg-card hairline-border rounded-2xl overflow-hidden hover:border-accent/60 transition-all duration-300 flex flex-col cursor-pointer" onclick="openProjectModal('personal-web')">
+<!-- 16:10 Frame Preview -->
+<div class="aspect-[16/10] bg-zinc-900 relative overflow-hidden flex items-center justify-center p-6 border-b border-border-hairline">
+<!-- Visual Mockup Element inside Preview -->
+<div class="w-full h-full rounded-lg bg-zinc-950 border border-zinc-800 p-4 flex flex-col justify-between group-hover:scale-105 transition-transform duration-500">
+<div class="flex items-center justify-between border-b border-zinc-800 pb-2">
+<div class="flex space-x-1.5">
+<div class="w-2 h-2 rounded-full bg-red-500/80"></div>
+<div class="w-2 h-2 rounded-full bg-yellow-500/80"></div>
+<div class="w-2 h-2 rounded-full bg-green-500/80"></div>
+</div>
+<span class="text-[10px] font-mono text-zinc-500">portfolio.html</span>
+</div>
+<div class="space-y-1.5 my-auto">
+<div class="h-2 w-3/4 bg-accent/40 rounded"></div>
+<div class="h-2 w-1/2 bg-zinc-700 rounded"></div>
+<div class="h-2 w-5/6 bg-zinc-800 rounded"></div>
+</div>
+<div class="flex justify-between items-center text-[10px] text-zinc-500 font-mono">
+<span>CSS GRID &amp; TAILWIND</span>
+<span class="text-accent">READY</span>
+</div>
+</div>
+<div class="absolute top-3 right-3 bg-black/70 backdrop-blur-md px-2.5 py-1 rounded text-[10px] font-semibold text-accent uppercase tracking-wider border border-white/5">
+                ACTIVE BUILD
+              </div>
+</div>
+<!-- Card Meta Details -->
+<div class="p-6 flex items-start justify-between flex-1">
+<div class="space-y-1">
+<span class="font-display text-2xl text-accent">01</span>
+<h3 class="font-display text-xl text-white tracking-wide group-hover:text-accent transition-colors">
+                  PERSONAL WEB PORTFOLIO
+                </h3>
+<p class="text-xs uppercase tracking-wider text-text-muted">
+                  WEBSITE CREATION · HTML / CSS / JS
+                </p>
+</div>
+<div class="pt-2 text-zinc-500 group-hover:text-white group-hover:translate-x-1 transition-all text-xl">
+                ⟶
+              </div>
+</div>
+</article>
+<!-- Project 02 -->
+<article class="group bg-bg-card hairline-border rounded-2xl overflow-hidden hover:border-accent/60 transition-all duration-300 flex flex-col cursor-pointer" onclick="openProjectModal('game-dev')">
+<!-- 16:10 Frame Preview -->
+<div class="aspect-[16/10] bg-zinc-900 relative overflow-hidden flex items-center justify-center p-6 border-b border-border-hairline">
+<div class="w-full h-full rounded-lg bg-zinc-950 border border-zinc-800 p-4 flex flex-col justify-between group-hover:scale-105 transition-transform duration-500">
+<div class="flex items-center justify-between border-b border-zinc-800 pb-2">
+<span class="text-[10px] font-mono text-accent">GAME_LOOP_MAIN.CPP</span>
+<span class="text-[10px] font-mono text-zinc-500">60 FPS</span>
+</div>
+<div class="flex items-center justify-center gap-3 py-2">
+<div class="w-10 h-10 border border-accent/50 bg-accent/10 rounded flex items-center justify-center text-accent text-lg font-mono">
+                    ▲
+                  </div>
+<div class="w-10 h-10 border border-zinc-700 bg-zinc-800/40 rounded flex items-center justify-center text-zinc-400 text-lg font-mono">
+                    ●
+                  </div>
+<div class="w-10 h-10 border border-zinc-700 bg-zinc-800/40 rounded flex items-center justify-center text-zinc-400 text-lg font-mono">
+                    ■
+                  </div>
+</div>
+<div class="text-[10px] text-zinc-500 font-mono text-center">
+                  COLLISION MATRIX &amp; MECHANICS
+                </div>
+</div>
+<div class="absolute top-3 right-3 bg-black/70 backdrop-blur-md px-2.5 py-1 rounded text-[10px] font-semibold text-emerald-400 uppercase tracking-wider border border-white/5">
+                LEARNING TRACK
+              </div>
+</div>
+<!-- Card Meta Details -->
+<div class="p-6 flex items-start justify-between flex-1">
+<div class="space-y-1">
+<span class="font-display text-2xl text-accent">02</span>
+<h3 class="font-display text-xl text-white tracking-wide group-hover:text-accent transition-colors">
+                  GAME DEV EXPLORATION
+                </h3>
+<p class="text-xs uppercase tracking-wider text-text-muted">
+                  GAME DEVELOPMENT · LOGIC &amp; MECHANICS
+                </p>
+</div>
+<div class="pt-2 text-zinc-500 group-hover:text-white group-hover:translate-x-1 transition-all text-xl">
+                ⟶
+              </div>
+</div>
+</article>
+<!-- Project 03 -->
+<article class="group bg-bg-card hairline-border rounded-2xl overflow-hidden hover:border-accent/60 transition-all duration-300 flex flex-col cursor-pointer" onclick="openProjectModal('informatics-lab')">
+<!-- 16:10 Frame Preview -->
+<div class="aspect-[16/10] bg-zinc-900 relative overflow-hidden flex items-center justify-center p-6 border-b border-border-hairline">
+<div class="w-full h-full rounded-lg bg-zinc-950 border border-zinc-800 p-4 flex flex-col justify-between group-hover:scale-105 transition-transform duration-500">
+<div class="flex items-center justify-between border-b border-zinc-800 pb-2">
+<span class="text-[10px] font-mono text-zinc-400">DATA_STRUCTURES.ALG</span>
+<span class="text-[10px] font-mono text-accent">O(n log n)</span>
+</div>
+<div class="space-y-2 py-1">
+<div class="flex items-center justify-between text-[11px] font-mono">
+<span class="text-zinc-500">Sorting &amp; Search</span>
+<span class="text-zinc-300">Binary Tree</span>
+</div>
+<div class="w-full bg-zinc-800 h-1.5 rounded-full overflow-hidden">
+<div class="bg-accent h-full w-2/3"></div>
+</div>
+</div>
+<div class="text-[10px] text-zinc-500 font-mono">
+                  ITPLN CURRICULUM FOUNDATIONS
+                </div>
+</div>
+<div class="absolute top-3 right-3 bg-black/70 backdrop-blur-md px-2.5 py-1 rounded text-[10px] font-semibold text-zinc-300 uppercase tracking-wider border border-white/5">
+                IN PROGRESS
+              </div>
+</div>
+<!-- Card Meta Details -->
+<div class="p-6 flex items-start justify-between flex-1">
+<div class="space-y-1">
+<span class="font-display text-2xl text-accent">03</span>
+<h3 class="font-display text-xl text-white tracking-wide group-hover:text-accent transition-colors">
+                  INFORMATICS CODE LAB
+                </h3>
+<p class="text-xs uppercase tracking-wider text-text-muted">
+                  BASIC PROGRAMMING · ALGORITHMS
+                </p>
+</div>
+<div class="pt-2 text-zinc-500 group-hover:text-white group-hover:translate-x-1 transition-all text-xl">
+                ⟶
+              </div>
+</div>
+</article>
+</div>
+</div>
+</section>
+<!-- END: SelectedProjects -->
+<!-- BEGIN: BentoEducationSkillsProcess -->
+<section class="py-16 md:py-24 border-t border-border-hairline bg-bg-elevated/40" data-purpose="bento-skills-timeline">
+<div class="max-w-7xl mx-auto px-5 sm:px-8">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+<!-- COLUMN 1: Education & Skills (5 Cols) -->
+<div class="lg:col-span-4 bg-bg-card hairline-border rounded-3xl p-7 flex flex-col justify-between">
+<div>
+<h3 class="font-display text-2xl text-white tracking-wide uppercase mb-6 flex items-center justify-between">
+<span>EDUCATION &amp; SKILLS</span>
+<span class="text-xs font-sans text-accent tracking-widest uppercase font-bold">PROFILE</span>
+</h3>
+<!-- Education Block -->
+<div class="mb-8">
+<span class="text-[11px] font-bold text-accent uppercase tracking-widest block mb-2">EDUCATION</span>
+<div class="space-y-1.5">
+<div class="flex items-baseline justify-between">
+<h4 class="text-white font-semibold text-base">Undergraduate Student</h4>
+<span class="text-xs font-mono text-zinc-400 bg-zinc-800/80 px-2 py-0.5 rounded">CURRENT</span>
+</div>
+<p class="text-zinc-300 text-sm font-medium">Informatics Engineering (Teknik Informatika)</p>
+<p class="text-zinc-400 text-xs">Institut Teknologi PLN (ITPLN) · Jakarta</p>
+</div>
+</div>
+<!-- Skills Block -->
+<div>
+<span class="text-[11px] font-bold text-accent uppercase tracking-widest block mb-3">SKILLS &amp; CAPABILITIES</span>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1.5 rounded-lg bg-zinc-900 border border-zinc-800 text-xs font-medium text-zinc-200 hover:border-accent hover:text-white transition-colors cursor-default">PUBLIC SPEAKING</span>
+<span class="px-3 py-1.5 rounded-lg bg-zinc-900 border border-zinc-800 text-xs font-medium text-zinc-200 hover:border-accent hover:text-white transition-colors cursor-default">TEAMWORK</span>
+<span class="px-3 py-1.5 rounded-lg bg-zinc-900 border border-zinc-800 text-xs font-medium text-zinc-200 hover:border-accent hover:text-white transition-colors cursor-default">LEADERSHIP</span>
+<span class="px-3 py-1.5 rounded-lg bg-zinc-900 border border-zinc-800 text-xs font-medium text-zinc-200 hover:border-accent hover:text-white transition-colors cursor-default">BASIC PROGRAMMING</span>
+<span class="px-3 py-1.5 rounded-lg bg-zinc-900 border border-zinc-800 text-xs font-medium text-zinc-200 hover:border-accent hover:text-white transition-colors cursor-default">CREATIVE THINKING</span>
+<span class="px-3 py-1.5 rounded-lg bg-zinc-900 border border-zinc-800 text-xs font-medium text-zinc-200 hover:border-accent hover:text-white transition-colors cursor-default">WEBSITE CREATION</span>
+<span class="px-3 py-1.5 rounded-lg bg-zinc-900 border border-zinc-800 text-xs font-medium text-zinc-200 hover:border-accent hover:text-white transition-colors cursor-default">GAME DEVELOPMENT</span>
+<span class="px-3 py-1.5 rounded-lg bg-zinc-900 border border-zinc-800 text-xs font-medium text-zinc-200 hover:border-accent hover:text-white transition-colors cursor-default">HTML &amp; CSS</span>
+<span class="px-3 py-1.5 rounded-lg bg-zinc-900 border border-zinc-800 text-xs font-medium text-zinc-200 hover:border-accent hover:text-white transition-colors cursor-default">ORGANIZATIONAL MANAGEMENT</span>
+</div>
+</div>
+</div>
+<!-- Footer note inside education card -->
+<div class="mt-8 pt-4 border-t border-border-hairline flex items-center justify-between text-xs text-zinc-400">
+<span>Passionate about continuous learning</span>
+<span class="text-accent font-bold">✦</span>
+</div>
+</div>
+<!-- COLUMN 2: Work Process (5-Step Timeline) (4 Cols) -->
+<div class="lg:col-span-4 bg-bg-card hairline-border rounded-3xl p-7 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-6">
+<h3 class="font-display text-2xl text-white tracking-wide uppercase">
+                  WORK PROCESS
+                </h3>
+<span class="text-xs font-mono text-zinc-500 uppercase">5 PHASES</span>
+</div>
+<!-- Steps List with Connector Lines -->
+<div class="space-y-4 relative">
+<!-- Vertical Track -->
+<div class="absolute left-4 top-3 bottom-3 w-[2px] bg-zinc-800 z-0"></div>
+<!-- Step 01 -->
+<div class="flex items-start gap-4 relative z-10">
+<div class="w-8 h-8 rounded-full bg-zinc-900 border border-accent/60 text-accent font-display text-sm flex items-center justify-center flex-shrink-0 shadow-lg">
+                    01
+                  </div>
+<div>
+<h5 class="text-xs font-bold text-accent uppercase tracking-wider">DISCOVER &amp; LEARN</h5>
+<p class="text-zinc-300 text-xs leading-relaxed mt-0.5">Explore problem statements, understand user needs, and absorb core technical concepts.</p>
+</div>
+</div>
+<!-- Step 02 -->
+<div class="flex items-start gap-4 relative z-10">
+<div class="w-8 h-8 rounded-full bg-zinc-900 border border-accent/60 text-accent font-display text-sm flex items-center justify-center flex-shrink-0 shadow-lg">
+                    02
+                  </div>
+<div>
+<h5 class="text-xs font-bold text-accent uppercase tracking-wider">PLAN &amp; ARCHITECT</h5>
+<p class="text-zinc-300 text-xs leading-relaxed mt-0.5">Structure logical flows, game rules, wireframes, and project milestones.</p>
+</div>
+</div>
+<!-- Step 03 -->
+<div class="flex items-start gap-4 relative z-10">
+<div class="w-8 h-8 rounded-full bg-zinc-900 border border-accent/60 text-accent font-display text-sm flex items-center justify-center flex-shrink-0 shadow-lg">
+                    03
+                  </div>
+<div>
+<h5 class="text-xs font-bold text-accent uppercase tracking-wider">DESIGN INTERFACES</h5>
+<p class="text-zinc-300 text-xs leading-relaxed mt-0.5">Shape bold visual hierarchies, high-contrast typography, and intuitive user experiences.</p>
+</div>
+</div>
+<!-- Step 04 -->
+<div class="flex items-start gap-4 relative z-10">
+<div class="w-8 h-8 rounded-full bg-zinc-900 border border-accent/60 text-accent font-display text-sm flex items-center justify-center flex-shrink-0 shadow-lg">
+                    04
+                  </div>
+<div>
+<h5 class="text-xs font-bold text-accent uppercase tracking-wider">DEVELOP &amp; CODE</h5>
+<p class="text-zinc-300 text-xs leading-relaxed mt-0.5">Translate structures into clean semantic HTML/CSS, robust scripts, and game prototypes.</p>
+</div>
+</div>
+<!-- Step 05 -->
+<div class="flex items-start gap-4 relative z-10">
+<div class="w-8 h-8 rounded-full bg-zinc-900 border border-accent/60 text-accent font-display text-sm flex items-center justify-center flex-shrink-0 shadow-lg">
+                    05
+                  </div>
+<div>
+<h5 class="text-xs font-bold text-accent uppercase tracking-wider">ITERATE &amp; REFINE</h5>
+<p class="text-zinc-300 text-xs leading-relaxed mt-0.5">Gather feedback, optimize performance, and continuously elevate quality.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-6 pt-3 border-t border-border-hairline text-right">
+<span class="text-[11px] text-zinc-500 uppercase tracking-widest font-mono">METHODOLOGY · STRUCTURED CREATIVITY</span>
+</div>
+</div>
+<!-- COLUMN 3: Crimson Card with Quote & Handwritten Signature (4 Cols) -->
+<div class="lg:col-span-4 rounded-3xl p-8 flex flex-col justify-between relative overflow-hidden bg-gradient-to-b from-bg-crimson-dark via-bg-card to-bg-base border border-accent/40 shadow-[0_15px_40px_rgba(200,29,37,0.22)]">
+<!-- Giant quotation mark background -->
+<div aria-hidden="true" class="absolute -top-6 -left-3 text-accent/20 font-serif text-[140px] leading-none select-none pointer-events-none">
+              “
+            </div>
+<!-- Quote Text -->
+<div class="relative z-10 mt-6">
+<p class="text-xl sm:text-2xl text-white font-medium leading-relaxed italic tracking-wide">
+                “Good technology is not just how it runs, but how it solves real human problems and helps people grow together.”
+              </p>
+</div>
+<!-- Signature & Closing -->
+<div class="relative z-10 mt-10 pt-6 border-t border-white/10">
+<div class="flex items-end justify-between">
+<div>
+<span class="text-xs uppercase tracking-widest text-zinc-400 block mb-1"><br></span>
+<!-- Handwritten Signature -->
+<div class="font-hand text-5xl text-accent-bright font-bold tracking-wider -rotate-2 select-none">
+                    Naufal
+                  </div>
+</div>
+<div class="text-right">
+<span class="text-accent text-lg inline-block animate-bounce">✦</span>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-white/5">
+<p class="text-[11px] uppercase tracking-widest text-zinc-300 font-semibold">
+                  LET'S BUILD SOMETHING MEANINGFUL TOGETHER.
+                </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: BentoEducationSkillsProcess -->
+<!-- BEGIN: OrganizationalExperience -->
+<section class="py-16 md:py-20 border-t border-border-hairline relative" data-purpose="experience-section">
+<div class="max-w-7xl mx-auto px-5 sm:px-8">
+<div class="bg-gradient-to-r from-bg-card via-zinc-900 to-bg-card hairline-border rounded-3xl p-8 sm:p-10 relative overflow-hidden">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+<div class="md:col-span-8 space-y-3">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/15 border border-accent/40 text-accent text-xs font-bold uppercase tracking-wider">
+                ORGANIZATIONAL &amp; SOCIAL LEADERSHIP
+              </div>
+<h3 class="font-display text-3xl sm:text-4xl text-white tracking-wide uppercase">
+                CORE COMMITTEE MEMBER · PALANG MERAH REMAJA (PMR)
+              </h3>
+<p class="text-text-muted text-sm sm:text-base leading-relaxed">
+                Active core committee member in the Youth Red Cross organization. Spearheaded UKS (School Health Unit) daily operational logistics, medical supply chain management, and organized emergency first aid readiness drills. Fostered deep teamwork, empathetic leadership, public communication, and calm crisis response under pressure.
+              </p>
+</div>
+<div class="md:col-span-4 flex flex-col justify-center items-start md:items-end border-t md:border-t-0 md:border-l border-border-hairline pt-6 md:pt-0 md:pl-8 space-y-4">
+<div class="text-left md:text-right">
+<span class="text-xs uppercase tracking-widest text-zinc-500 font-mono block">ORGANIZATION</span>
+<span class="text-white font-semibold text-lg">Youth Red Cross (PMR)</span>
+</div>
+<div class="text-left md:text-right">
+<span class="text-xs uppercase tracking-widest text-zinc-500 font-mono block">KEY ASSETS</span>
+<span class="text-accent font-semibold text-sm">Crisis Handling · Team Coordination</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: OrganizationalExperience -->
+<!-- BEGIN: WorkTogetherAndFooter -->
+<section class="py-16 md:py-24 border-t border-border-hairline bg-black relative" data-purpose="contact-and-footer" id="contact">
+<div class="max-w-7xl mx-auto px-5 sm:px-8">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<!-- LEFT: Pitch & CTA Button (4 Cols) -->
+<div class="lg:col-span-5 space-y-6">
+<div>
+<h2 class="font-display text-4xl sm:text-5xl md:text-6xl text-white tracking-tight uppercase leading-none">
+                LET'S WORK<br>
+<span class="text-accent">TOGETHER</span>
+<span class="text-accent text-3xl align-top">✦</span>
+</h2>
+</div>
+<p class="text-text-muted text-sm sm:text-base leading-relaxed">
+              I'm constantly open for new student projects, web collaborations, and technology internships. Let's create something modern, impactful, and technically refined.
+            </p>
+<div class="pt-2 flex flex-wrap gap-4">
+<a class="inline-flex items-center gap-3 px-6 py-3.5 rounded-full bg-accent hover:bg-accent-bright text-white text-xs sm:text-sm font-bold uppercase tracking-wider transition-all transform hover:-translate-y-0.5 shadow-lg shadow-accent/30" href="https://instagram.com/nnarkaan" rel="noopener noreferrer" target="_blank">
+<span>CONNECT ON INSTAGRAM</span>
+<span>⟶</span>
+</a>
+<button class="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-bg-card hairline-border hover:border-accent text-zinc-200 text-xs sm:text-sm font-bold uppercase tracking-wider transition-all" onclick="copyToClipboard('naufal.arkaan@itpln.ac.id', 'Email copied!')">
+<span>COPY EMAIL</span>
+</button>
+</div>
+</div>
+<!-- MIDDLE: Detailed Contact Info (3 Cols) -->
+<div class="lg:col-span-3 space-y-5 border-l border-border-hairline pl-0 lg:pl-8">
+<!-- Email -->
+<div class="space-y-1">
+<span class="text-[11px] uppercase tracking-widest text-zinc-500 font-mono">DIRECT INQUIRY</span>
+<p class="text-white hover:text-accent font-medium text-sm cursor-pointer transition-colors" onclick="copyToClipboard('naufal.arkaan@itpln.ac.id', 'Email copied!')">
+                naufal.arkaan@itpln.ac.id
+              </p>
+</div>
+<!-- Instagram -->
+<div class="space-y-1">
+<span class="text-[11px] uppercase tracking-widest text-zinc-500 font-mono">SOCIAL</span>
+<p>
+<a class="text-white hover:text-accent font-medium text-sm transition-colors" href="https://instagram.com/nnarkaan" rel="noopener noreferrer" target="_blank">
+                  @nnarkaan
+                </a>
+</p>
+</div>
+<!-- Institution -->
+<div class="space-y-1">
+<span class="text-[11px] uppercase tracking-widest text-zinc-500 font-mono">CAMPUS</span>
+<p class="text-zinc-300 text-sm">
+                Institut Teknologi PLN
+              </p>
+</div>
+<!-- Location -->
+<div class="space-y-1">
+<span class="text-[11px] uppercase tracking-widest text-zinc-500 font-mono">LOCATION</span>
+<p class="text-zinc-300 text-sm flex items-center gap-1.5">
+<span>Jakarta, Indonesia</span>
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500 inline-block"></span>
+</p>
+</div>
+</div>
+<!-- RIGHT: 3D Angled Sleek Laptop & Tech Setup Mockup (4 Cols) -->
+<div class="lg:col-span-4 flex items-center justify-center">
+<!-- Angled Workspace Mockup Container -->
+<div class="relative w-full max-w-sm group select-none">
+<!-- Laptop Visual -->
+<div class="relative mx-auto w-64 sm:w-72 bg-zinc-900 border border-zinc-700 rounded-t-xl pt-2 px-2 shadow-2xl shadow-accent/15 transform hover:-rotate-1 transition-transform duration-500">
+<!-- Screen Bezel -->
+<div class="w-full aspect-[16/10] bg-black rounded overflow-hidden relative border border-zinc-800 flex flex-col justify-between p-3 bg-gradient-to-br from-zinc-950 via-bg-crimson-dark/40 to-black">
+<div class="flex items-center justify-between text-[8px] font-mono text-zinc-500 border-b border-white/5 pb-1">
+<span>NAUFAL_DEV_OS v2.4</span>
+<span class="text-accent">● LIVE</span>
+</div>
+<div class="space-y-1 text-center my-auto">
+<span class="text-accent font-display text-xl tracking-wider block">NAUFAL NADHIF</span>
+<span class="text-[9px] uppercase tracking-widest text-zinc-400 block">ITPLN INFORMATICS</span>
+</div>
+<div class="text-[8px] font-mono text-zinc-600 flex justify-between">
+<span>READY_FOR_CHALLENGES</span>
+<span>2026</span>
+</div>
+</div>
+<!-- Laptop Base / Hinge -->
+<div class="h-3 bg-zinc-800 rounded-b-md mx-[-8px] mt-1 border-t border-zinc-600 shadow-md flex justify-center items-center">
+<div class="w-12 h-1 bg-zinc-700 rounded-full"></div>
+</div>
+</div>
+<!-- Accompanying Coffee Mug Element on Desk -->
+<div class="absolute -bottom-3 -right-2 w-10 h-11 bg-zinc-900 border border-zinc-700 rounded-b-xl rounded-t-sm shadow-xl flex items-center justify-center">
+<span class="text-[8px] font-bold text-accent">NNA</span>
+<!-- Mug handle -->
+<div class="absolute -right-2 top-2 w-2.5 h-6 border-2 border-zinc-700 rounded-r-md"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Copyright Hairline Bar -->
+<div class="mt-20 pt-8 border-t border-border-hairline flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-500">
+<div>
+            © 2026 <span class="text-zinc-300 font-medium">Naufal Nadhif Arkaan</span>. All rights reserved.
+          </div>
+<div class="flex items-center space-x-4">
+<span>Informatics Engineering · Institut Teknologi PLN</span>
+<span class="text-accent">✦</span>
+</div>
+</div>
+</div>
+</section>
+<!-- END: WorkTogetherAndFooter -->
+</main>
+<!-- BEGIN: InteractiveProjectModal -->
+<div aria-modal="true" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300" id="projectModal" role="dialog">
+<div class="bg-bg-card hairline-border max-w-lg w-full rounded-2xl p-6 sm:p-8 shadow-2xl relative transform scale-95 transition-transform duration-300" id="modalContainer">
+<!-- Close Button -->
+<button aria-label="Close modal" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-zinc-900 border border-zinc-700 flex items-center justify-center text-zinc-400 hover:text-white hover:border-accent transition-colors" onclick="closeProjectModal()">
+        ✕
+      </button>
+<!-- Modal Content Body -->
+<div id="modalContent">
+<!-- Injected via JavaScript -->
+</div>
+</div>
+</div>
+<!-- END: InteractiveProjectModal -->
+<!-- BEGIN: InteractiveScripts -->
+<script data-purpose="interactive-functionalities">
+    // Project detail dataset
+    const projectData = {
+      'personal-web': {
+        index: '01',
+        title: 'Personal Web Portfolio',
+        category: 'Website Creation · Modern Web Architecture',
+        status: 'Active Build',
+        description: 'A bespoke, dark-mode obsidian and crimson portfolio website engineered with semantic HTML5, utility-first CSS styling, and responsive modular components. Built to showcase technical pursuits and informatics background.',
+        tech: ['HTML5 Semantic', 'Tailwind CSS', 'Responsive Grid', 'Typography Pairing']
+      },
+      'game-dev': {
+        index: '02',
+        title: 'Game Dev Exploration',
+        category: 'Game Development · Logic & Mechanics',
+        status: 'Learning Track',
+        description: 'Hands-on exploration into fundamental 2D/3D gameplay mechanics, game loop lifecycles, player input handling, and collision detection systems. Focuses on transforming mathematical algorithms into engaging real-time experiences.',
+        tech: ['Logic Programming', 'Game Loop Architecture', 'Mechanics Prototyping', 'Physics Basics']
+      },
+      'informatics-lab': {
+        index: '03',
+        title: 'Informatics Code Lab',
+        category: 'Basic Programming · Algorithms & Data Structures',
+        status: 'In Progress',
+        description: 'Academic and independent programming laboratory addressing foundational algorithms, data structure implementations, sorting efficiency, recursion, and object-oriented paradigms taught at Institut Teknologi PLN.',
+        tech: ['C / C++', 'Data Structures', 'Algorithmic Thinking', 'Problem Solving']
+      }
+    };
+
+    // Open Modal Handler
+    function openProjectModal(key) {
+      const modal = document.getElementById('projectModal');
+      const container = document.getElementById('modalContainer');
+      const content = document.getElementById('modalContent');
+      const item = projectData[key];
+
+      if (!item) return;
+
+      const techBadges = item.tech.map(t => 
+        `<span class="px-2.5 py-1 bg-zinc-900 border border-zinc-800 text-[11px] font-mono text-zinc-300 rounded">${t}</span>`
+      ).join(' ');
+
+      content.innerHTML = `
+        <div class="space-y-4">
+          <div class="flex items-center justify-between">
+            <span class="font-display text-accent text-3xl">${item.index}</span>
+            <span class="px-2.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-accent/20 text-accent border border-accent/30">${item.status}</span>
+          </div>
+          <h3 class="font-display text-2xl text-white tracking-wide uppercase">${item.title}</h3>
+          <p class="text-xs uppercase tracking-wider text-accent font-semibold">${item.category}</p>
+          <p class="text-sm text-text-muted leading-relaxed">${item.description}</p>
+          
+          <div class="pt-3 border-t border-border-hairline">
+            <span class="text-[10px] uppercase font-mono tracking-widest text-zinc-500 block mb-2">CORE HIGHLIGHTS</span>
+            <div class="flex flex-wrap gap-1.5">
+              ${techBadges}
+            </div>
+          </div>
+          
+          <div class="pt-4 flex justify-end">
+            <button onclick="closeProjectModal()" class="px-5 py-2 rounded-full bg-accent hover:bg-accent-bright text-white text-xs font-bold uppercase tracking-wider transition-colors">
+              Close Overview
+            </button>
+          </div>
+        </div>
+      `;
+
+      modal.classList.remove('opacity-0', 'pointer-events-none');
+      container.classList.remove('scale-95');
+      container.classList.add('scale-100');
+    }
+
+    // Close Modal Handler
+    function closeProjectModal() {
+      const modal = document.getElementById('projectModal');
+      const container = document.getElementById('modalContainer');
+      
+      modal.classList.add('opacity-0', 'pointer-events-none');
+      container.classList.remove('scale-100');
+      container.classList.add('scale-95');
+    }
+
+    // Close on backdrop click
+    document.getElementById('projectModal').addEventListener('click', function(e) {
+      if (e.target === this) {
+        closeProjectModal();
+      }
+    });
+
+    // Clipboard Copy Helper with Animated Toast
+    function copyToClipboard(text, successMessage) {
+      navigator.clipboard.writeText(text).then(() => {
+        const toast = document.getElementById('copyToast');
+        const toastMsg = document.getElementById('toastMessage');
+        toastMsg.textContent = successMessage || 'Copied to clipboard!';
+        
+        toast.classList.remove('translate-y-20', 'opacity-0');
+        toast.classList.add('translate-y-0', 'opacity-100');
+
+        setTimeout(() => {
+          toast.classList.add('translate-y-20', 'opacity-0');
+          toast.classList.remove('translate-y-0', 'opacity-100');
+        }, 2600);
+      });
+    }
+  </script>
+<!-- END: InteractiveScripts -->
+
+
+</body></html>

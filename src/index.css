@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg-base: #0a0a0b;
+  --color-bg-elevated: #111113;
+  --color-bg-card: #151518;
+  --color-bg-crimson-dark: #4a0d10;
+  --color-bg-crimson-deep: #1c0708;
+  --color-accent: #c81d25;
+  --color-accent-bright: #e5252e;
+  --color-text-main: #f4f4f5;
+  --color-text-muted: #9a9aa2;
+  --color-border-hairline: rgba(255, 255, 255, 0.08);
+
+  --font-display: "Anton", sans-serif;
+  --font-sans: "Plus Jakarta Sans", sans-serif;
+  --font-hand: "Caveat", cursive;
+}
+
+@layer base {
+  body {
+    background-color: #0a0a0b;
+    color: #f4f4f5;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: #c81d25;
+    color: #ffffff;
+  }
+}
+
+.hero-wordmark-text {
+  background: linear-gradient(
+    180deg,
+    rgba(200, 29, 37, 0.95) 0%,
+    rgba(135, 14, 20, 0.65) 55%,
+    rgba(10, 10, 11, 0) 95%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  user-select: none;
+}
+
+.crimson-ambient {
+  background: radial-gradient(
+    circle at 50% 30%,
+    rgba(200, 29, 37, 0.24) 0%,
+    rgba(10, 10, 11, 0) 70%
+  );
+}
+
+.hairline-border {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.hairline-border-crimson {
+  border: 1px solid rgba(200, 29, 37, 0.4);
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #c81d25;
+}
